@@ -1,18 +1,25 @@
 package ro.ase.cts.seminar2;
 
+
+
 import ro.ase.cts.seminar2.exceptii.IllegalTransferException;
 import ro.ase.cts.seminar2.exceptii.InsufficientFundsException;
+import ro.ase.cts.seminar2.interfaces.Depositable;
+import ro.ase.cts.seminar2.interfaces.NotificationService;
+import ro.ase.cts.seminar2.interfaces.Transferable;
+import ro.ase.cts.seminar2.interfaces.Withdrawable;
 
-public class CurrentAccount extends BankAccount{
+public class CurrentAccount extends BankAccount implements Depositable, Withdrawable, Transferable{
 
 	public static double MAX_CREDIT=5000;
+	public NotificationService notificationService;
 	public CurrentAccount() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
 	public CurrentAccount(double balance, String iban ) {
-		super(balance, iban); //contructorul parinte
+		super(balance, iban); 
 		
 		
 	}
@@ -21,6 +28,14 @@ public class CurrentAccount extends BankAccount{
 	public void deposit(double amount) {
 		//this.setBalance(getBalance()+amount);
 		this.balance += amount;
+	}
+
+	public NotificationService getNotificationService() {
+		return notificationService;
+	}
+
+	public void setNotificationService(NotificationService notificationService) {
+		this.notificationService = notificationService;
 	}
 
 	@Override
@@ -32,10 +47,13 @@ public class CurrentAccount extends BankAccount{
 		else {
 			throw new InsufficientFundsException("Fonduri insuficiente");
 		}
+		if(this.notificationService !=null) {
+		this.notificationService.senNotification ("s-a extras suma " + amount);
+		}
 	}
 
 	@Override
-	public void transfer(double amount, Account destination) throws IllegalTransferException, InsufficientFundsException {
+	public void transfer(double amount, Depositable destination) throws IllegalTransferException, InsufficientFundsException {
 		if(((BankAccount)destination).iban.equals(this.iban))
 		{
 			throw new IllegalTransferException("conturile coincid");
@@ -43,11 +61,14 @@ public class CurrentAccount extends BankAccount{
 		else {
 			
 			this.withdraw(amount);
-			destination.deposit(amount); //depundem suma in contul ales
+			destination.deposit(amount);
 			
 		}
 		
 	}
+
+	
+	
 
 
 }
