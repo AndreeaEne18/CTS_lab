@@ -5,11 +5,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import ro.ase.cts.seminar_5.refactory.Product;
+
 public class Cart implements Serializable {
 	
 	private static  Map<String, Cart> instances = null;
 	private String type;
-	public ArrayList<String> products;
+	public ArrayList<Product> products;
 	
 	private Cart() {
 		
@@ -29,7 +31,7 @@ public class Cart implements Serializable {
 		return instances.get(type);
 	}
 	
-	public ArrayList<String> getProducts(){
+	public ArrayList<Product> getProducts(){
 		return products;
 	}
 	

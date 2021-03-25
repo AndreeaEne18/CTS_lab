@@ -1,8 +1,6 @@
 package ro.ase.cts.seminar4;
 
-import ro.ase.cts.seminar_5.singleton.Cart;
-import ro.ase.cts.seminar_5.singleton.EagerSchoppingCarExample;
-import ro.ase.cts.seminar_5.singleton.SingletonEnume;
+
 
 public class Main {
 
