@@ -3,9 +3,9 @@ package ro.ase.cts.seminar_5.refactory;
 public class TechProductFactory extends AbstractProductFactory{
 
 	@Override
-	public Product makeProduct(String productName) throws UnsupportedOperationException {
+	public Product makeProduct() throws UnsupportedOperationException {
 		
-		return new TechProduct(productName);
+		return new TechProduct("generci");
 	}
 
 	@Override

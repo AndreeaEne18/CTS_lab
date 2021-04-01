@@ -1,4 +1,4 @@
-package ro.ase.cts.seminar_5.refactory;
+package ro.ase.cts.seminar_6.builder;
 
 public abstract class AbstractProductFactory {
 	public abstract Product makeProduct()  throws UnsupportedOperationException;

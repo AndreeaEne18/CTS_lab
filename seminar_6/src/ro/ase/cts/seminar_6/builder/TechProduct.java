@@ -1,6 +1,7 @@
-package ro.ase.cts.seminar_5.refactory;
+package ro.ase.cts.seminar_6.builder;
 
 public class TechProduct implements Product{
+	int id;
 	String productName;
 	String manufacturer;
 	String model;
