@@ -12,7 +12,7 @@ public class TechProductFactory extends AbstractProductFactory{
 
 	@Override
 	public Product makeProduct(int id) throws UnsupportedOperationException {
-		ArrayList<String> record = readRecordsFromFile("tech_products.csv");
+		ArrayList<String> records = readRecordsFromFile("tech_products.csv");
 		for(String record: records) {
 			String[] productAttributes = record.split(",");
 			if(Integer.valueOf(productAttributes[0])==id) {
