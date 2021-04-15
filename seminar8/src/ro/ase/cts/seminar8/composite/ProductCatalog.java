@@ -22,23 +22,34 @@ public class ProductCatalog extends CatalogComponent {
 	@Override
 	public void remove(CatalogComponent component) {
 		for(int i=0; i<products.size(); i++) {
-			if(products.get(i).equals(component.getName())) {
+			if(products.get(i).getName(). equals(component.getName())) {
 				products.remove(i);
 			}
 		}
+		//products.remove(component);
 		
 	}
 
 	@Override
 	public String getName() {
 		
-		return null;
+		return this.name;
 	}
 
 	@Override
 	public double getPrice() {
-		// TODO Auto-generated method stub
-		return 0;
+		throw new UnsupportedOperationException("Can 't get price!");
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append(this.name).append(":\n");
+		for(CatalogComponent comp: this.products) {
+			builder.append(comp.toString());
+			
+		}
+		return builder.toString();
+				}
 
 }
