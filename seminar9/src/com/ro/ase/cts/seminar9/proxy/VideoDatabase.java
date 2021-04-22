@@ -9,7 +9,7 @@ public class VideoDatabase {
 	public VideoDatabase() {
 
 		videosCollection = new ArrayList<>();
-		videosCollection.add(new YoutubeVideo(1, "How to cook omlette by Hordon Ramsay", 6));
+		videosCollection.add(new YoutubeVideo(1, "How to cook omlette by Gordon Ramsay", 6));
 		videosCollection.add(new YoutubeVideo(1, "Omlette recipe by Jamila", 10));
 
 		
