@@ -1,8 +1,8 @@
 package ro.ase.cts.seminar_10.chais;
 
 public enum Verbosity {
-INFP(1), 
-DEBUGG(2),
+INFO(1), 
+DEBUG(2),
 ERROR(3);
 	
 	public int verbosity;
