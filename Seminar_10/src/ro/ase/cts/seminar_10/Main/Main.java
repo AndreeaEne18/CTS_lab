@@ -1,5 +1,12 @@
 package ro.ase.cts.seminar_10.Main;
 
+import ro.ase.cts.seminar10.command.CommandInterface;
+import ro.ase.cts.seminar10.command.DimLightCommand;
+import ro.ase.cts.seminar10.command.IncraseLightIntensityCommand;
+import ro.ase.cts.seminar10.command.LightBulb;
+import ro.ase.cts.seminar10.command.RemoteControll;
+import ro.ase.cts.seminar10.command.TurnLightOnCommand;
+import ro.ase.cts.seminar10.command.TurnOffLightCommand;
 import ro.ase.cts.seminar10.strategy.MarketingStategyInterface;
 import ro.ase.cts.seminar10.strategy.ModulMarketing;
 import ro.ase.cts.seminar10.strategy.RandomMarketingStrategy;
@@ -44,6 +51,25 @@ public static void main(String[] args) {
 	loggerChain.logMessage(Verbosity.ERROR, "Something is wrong!");
 	loggerChain.logMessage(Verbosity.DEBUG, "This is a debug message");
 	
+	System.out.println("*********************Command******************************************");
+	
+	LightBulb bulb= new LightBulb();
+	
+	CommandInterface lightOnCommand = new TurnLightOnCommand(bulb);
+	CommandInterface lightOFf = new TurnOffLightCommand(bulb);
+	CommandInterface dimLight = new DimLightCommand(bulb);
+	CommandInterface increCommandInterface = new IncraseLightIntensityCommand(bulb);
+	
+	RemoteControll controll = new RemoteControll(lightOnCommand, lightOFf, dimLight, increCommandInterface);
+	
+	
+	controll.pressLightOnButton();
+	controll.pressDimButton();
+	controll.pressIncreseButton();
+	controll.pressIncreseButton();
+	controll.pressDimButton();
+	controll.pressLightOffButton();
 	System.out.println("*********************end******************************************");
+
 	}
 }

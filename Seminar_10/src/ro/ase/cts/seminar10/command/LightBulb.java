@@ -19,9 +19,11 @@ public class LightBulb {
 		if(lightIntensity>0) {
 			lightIntensity --;
 		}
+		System.out.println("Light " + lightIntensity + "intensity level");
 	}
 	public void increaseLightIntensity() {
-		System.out.println("Increasing intensity ");
+		System.out.println("Increasing intensity "+ lightIntensity);
+		lightIntensity++;
 		
 	}
 }

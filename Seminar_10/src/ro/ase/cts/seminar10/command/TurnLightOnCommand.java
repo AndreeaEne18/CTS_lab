@@ -9,7 +9,6 @@ public class TurnLightOnCommand implements CommandInterface {
 		this.buld = buld;
 	}
 
-
 	@Override
 	public void execute() {
 		buld.turnOnLight();
