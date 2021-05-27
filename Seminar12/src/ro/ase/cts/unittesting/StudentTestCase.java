@@ -45,9 +45,5 @@ class StudentTestCase {
 		assertEquals(grades, student.note, "GRADES IS NOT EQUAL");
 	}
 	
-	@Test
-	void test2() {
-		fail("Not yet implemented - test 2");
-	}
 
 }
